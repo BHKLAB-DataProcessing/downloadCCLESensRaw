@@ -60,7 +60,7 @@ getCCLErawData <-
     
     rownames(raw.sensitivity)  <- sprintf("drugid_%s_%s",as.character(raw.sensitivity[ ,2]),as.character(raw.sensitivity[ ,1]))
     raw.sensitivity <- raw.sensitivity[ ,-c(1,2)]
-    raw.sensitivity <- array(c(as.matrix(raw.sensitivity[ ,1:con_tested]), as.matrix(raw.sensitivity[ ,(con_tested+1):(2*con_tested)])), c(nrow(raw.sensitivity), con_tested, 2),
+    raw.sensitivity <- array(c(as.matrix(as.numeric(raw.sensitivity[ ,1:con_tested])), as.matrix(as.numeric(raw.sensitivity[ ,(con_tested+1):(2*con_tested)]))), c(nrow(raw.sensitivity), con_tested, 2),
                              dimnames=list(rownames(raw.sensitivity), colnames(raw.sensitivity[ ,1:con_tested]), c("Dose", "Viability")))
                              
     
